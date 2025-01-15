@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Spring Core, Web
+    implementation("org.springframework:spring-context:5.3.39")
+    implementation("org.springframework:spring-webmvc:5.3.39")
+
+    // Embedded Tomcat
+    implementation("org.apache.tomcat.embed:tomcat-embed-core:9.0.98")
+
+    // JPA
+    implementation("jakarta.persistence:jakarta.persistence-api:2.2.3")
+    implementation("org.hibernate:hibernate-core:5.6.15.Final")
+
+    // Swagger
+    implementation 'io.springfox:springfox-swagger2:2.10.5'
+    implementation 'io.springfox:springfox-swagger-ui:2.10.5'
+
+    // DB - H2
+    runtimeOnly("com.h2database:h2:2.2.224")
+
+    // Test
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.3")
+}
+
+test {
+    useJUnitPlatform()
+}
