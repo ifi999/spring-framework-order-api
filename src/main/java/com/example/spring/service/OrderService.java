@@ -6,8 +6,8 @@ import com.example.spring.repository.entity.Order;
 import com.example.spring.repository.entity.OrderItem;
 import com.example.spring.repository.entity.OrderStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Transactional
@@ -20,8 +20,8 @@ public class OrderService {
         this.orderJpaRepository = orderJpaRepository;
     }
 
-    public Order getOrder(Long id) {
-        return orderJpaRepository.findById(id);
+    public Order getOrder(final Long id) {
+        return orderJpaRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Order is not found. Order ID: " + id));
     }
 
     public void createOrder(final CreateOrder.HttpRequest request) {
