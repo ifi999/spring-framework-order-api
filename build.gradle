@@ -36,6 +36,9 @@ dependencies {
     // DB - H2
     runtimeOnly("com.h2database:h2:2.2.224")
 
+    // HikariCP
+    implementation("com.zaxxer:HikariCP:5.0.1")
+
     // Test
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.3")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.3")
