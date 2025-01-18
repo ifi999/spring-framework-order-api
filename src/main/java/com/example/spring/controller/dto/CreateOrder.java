@@ -13,6 +13,12 @@ public class CreateOrder {
 
         private List<OrderItemRequest> items;
 
+        public HttpRequest(final Long customerId, final BigDecimal totalPrice, final List<OrderItemRequest> items) {
+            this.customerId = customerId;
+            this.totalPrice = totalPrice;
+            this.items = items;
+        }
+
         public Long getCustomerId() {
             return customerId;
         }
@@ -34,6 +40,14 @@ public class CreateOrder {
         private Integer quantity;
         private BigDecimal price;
         private String option;
+
+        public OrderItemRequest(final Long productId, final String productName, final Integer quantity, final BigDecimal price, final String option) {
+            this.productId = productId;
+            this.productName = productName;
+            this.quantity = quantity;
+            this.price = price;
+            this.option = option;
+        }
 
         public Long getProductId() {
             return productId;
